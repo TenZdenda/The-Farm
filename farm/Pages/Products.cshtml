@@ -1,0 +1,45 @@
+﻿@page
+@model farm.Pages.ProductsModel
+@{
+    ViewData["Title"] = "The Farm 2.0 | Products";
+}
+
+<nav class="flex items-center bg-white p-3 flex-wrap shadow-xl">
+    <span class="block font-bold text-lg text-black">THE FARM 2.0</span>
+
+    <button class="text-black inline-flex p-3 hover:bg-gray-700 rounded ml-auto hover:text-white outline-none nav-toggler lg:hidden" data-target="#navigation">
+        <i class="uil uil-bars pr-3"></i> MENU
+    </button>
+
+    <div class="hidden top-navbar w-full lg:inline-flex lg:flex-grow lg:w-auto" id="navigation">
+        <div class="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start flex flex-col lg:h-auto">
+            <a asp-area="" asp-page="/Index" class="lg:inline-flex lg:w-auto w-full px-7 py-2 mr-10 rounded text-black items-center justify-center hover:bg-gray-100">
+                <span>Home</span>
+            </a>
+
+            <a class="lg:inline-flex lg:w-auto w-full px-7 py-2 text-black items-center rounded-sm justify-center lg:bg-green-500 lg:text-white hover:bg-green-700">
+                <span><i class="uil uil-shopping-cart-alt"></i> Cart</span>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<section class="mt-16 p-5">
+    <h1 class="text-2xl text-center font-bold md:text-4xl mb-5">Our products</h1>
+    <div class="md:flex flex-wrap">
+        @foreach (var item in Model.Products)
+        {
+            <div class="w-96 shadow-xl mx-auto m-5">
+                <img src="images/@item.Value.Photo" alt="@item.Value.Name" class="rounded-b-xl shadow-xl">
+
+                <div class="p-4">
+                    <h2 class="mb-4 text-xl font-bold">@item.Value.Name</h2>
+                    <p class="text-gray-600">@item.Value.Description</p>
+
+                    <span class="block text-xl font-bold mt-10 text-center">@item.Value.Price DKK</span>
+                    <button class="p-3 w-full bg-green-500 shadow-lg text-white rounded outline-none block mx-auto mt-5"><i class="uil uil-shopping-bag"></i> Add to cart</button>
+                </div>
+            </div>
+        }
+    </div>
+</section>

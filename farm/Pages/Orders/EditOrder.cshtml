@@ -1,0 +1,87 @@
+﻿@page "{id}"
+@model farm.Pages.Orders.EditOrderModel
+@{
+    ViewData["Title"] = "Admin order detail";
+}
+
+@if (Model.validUser != 1)
+{
+    <p>Please login..</p>
+}
+else
+{
+    <div>
+        <nav class="bg-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <img class="h-8 w-8" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow">
+                        </div>
+                        <div class="hidden md:block">
+                            <div class="ml-10 flex items-baseline space-x-4">
+                                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                                <a asp-area="" asp-page="/Dashboard" class="text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
+
+                                <a asp-area="" asp-page="/Products/GetAllProducts" class="bg-gray-900 text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Products</a>
+
+                                <a asp-area="" asp-page="/Orders/GetAllOrders" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Orders</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <header class="bg-white shadow">
+            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                <h1 class="text-3xl font-bold leading-tight text-gray-900">
+                    Orders
+                </h1>
+            </div>
+        </header>
+        <main>
+            <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+                <div class="px-4 py-6 sm:px-0">
+                    <div class="flex flex-col">
+                        <a asp-page="GetAllOrders" class="bg-gray-800 text-white text-center w-48 p-3 mb-10 rounded hover:bg-gray-600 block">
+                            <i class="uil uil-arrow-left"></i> Go back
+                        </a>
+                        <h2 class="text-xl font-bold leading-tight text-gray-900 mb-10">Delete a product with ID - @Model.Order.ID</h2>
+
+                        <div>
+                            <p class="block text-xl mb-10">
+                                Customer name: @Model.Order.Customer.Name
+                            </p>
+
+                            <p class="block text-xl mb-10">
+                                Customer phone: @Model.Order.Customer.Phone
+                            </p>
+
+                            <p class="block text-xl mb-10">
+                                Customer address: @Model.Order.Customer.Address
+                            </p>
+
+                            <h3 class="text-lg font-bold leading-tight text-gray-900 mt-5 mb-2">Products</h3>
+
+                            @foreach (var item in @Model.Order.List)
+                            {
+                                <p class="block text-xl mb-10">
+                                    <ul>
+                                        <li>Product name: @item.Id</li>
+                                        <li>Product name: @item.Name</li>
+                                        <li>Product name: @item.Price</li>
+                                    </ul>
+                                </p>
+                            }
+
+                            <p class="block text-xl mb-10">
+                                Datetime: @Model.Order.DateTime
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+}

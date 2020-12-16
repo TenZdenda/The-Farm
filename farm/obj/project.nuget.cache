@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "xvBtNpeY86oBK7ZEjmKtJiW5EMkv/dXWRPhveznFN8tie4oUdLrQrWOfuMFHgL+cgHk6tLYBODYIS1dbjY2FJw==",
+  "success": true,
+  "projectFilePath": "/Users/zdenekpasek/www/The-Farm-2.0/farm/farm.csproj",
+  "expectedPackageFiles": [
+    "/Users/zdenekpasek/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
